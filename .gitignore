@@ -1,0 +1,13 @@
+﻿bin/
+obj/
+.vs/
+*.user
+*.suo
+*.userprefs
+*.ide
+*.cache
+*.log
+*.sqlite
+*.db
+*.mdf
+*.ldf
