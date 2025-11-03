@@ -1,0 +1,14 @@
+<header style="position:sticky;top:0;z-index:20;background:rgba(8,10,15,.65);backdrop-filter:blur(8px);border-bottom:1px solid #1e2430;">
+  <div class="container" style="display:flex;align-items:center;gap:18px;padding:14px 24px;">
+    <div style="font-weight:800;letter-spacing:.4px;">Salazar • Blog</div>
+    <nav style="display:flex;gap:14px;margin-left:auto">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a>
+      <a routerLink="/login" routerLinkActive="active">Login</a>
+      <a routerLink="/register" routerLinkActive="active">Register</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <router-outlet></router-outlet>
+</main>

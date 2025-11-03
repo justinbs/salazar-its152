@@ -17,23 +17,25 @@ namespace BlogAPI.Controllers
         public PostController(SqlData data) => _data = data;
 
         // POST /api/Post/create
-        [AllowAnonymous]
         [HttpPost("create")]
         public async Task<IActionResult> Create([FromBody] PostForm model)
         {
             if (model is null || string.IsNullOrWhiteSpace(model.Title) || string.IsNullOrWhiteSpace(model.Body))
                 return BadRequest("Title and Body are required.");
 
+            // userId from JWT
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier) ?? User.FindFirst("id");
+            if (userIdClaim is null) return Unauthorized();
+
             var post = new PostModel
             {
-                UserId = 1,
+                UserId = int.Parse(userIdClaim.Value),
                 Title = model.Title,
                 Body = model.Body,
                 DateCreated = DateTime.UtcNow
             };
 
             await _data.CreatePostAsync(post);
-
             return Ok(new { message = "created" });
         }
 

@@ -1,0 +1,10 @@
+<section class="card" style="max-width:520px; margin:0 auto">
+  <div class="h1">Login</div>
+  <form class="mt16" (ngSubmit)="onSubmit()">
+    <label class="muted">Username</label>
+    <input class="input mt8" [(ngModel)]="model.username" name="username" required/>
+    <label class="muted mt16">Password</label>
+    <input class="input mt8" type="password" [(ngModel)]="model.password" name="password" required/>
+    <button class="btn mt24" type="submit">Sign in</button>
+  </form>
+</section>

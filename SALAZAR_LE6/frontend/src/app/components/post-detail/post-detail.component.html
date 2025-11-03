@@ -1,0 +1,9 @@
+<section class="card">
+  <a routerLink="/" class="btn secondary">← Back</a>
+  <h1 class="h1 mt16">{{ post?.title }}</h1>
+  <div class="muted">ID #{{ post?.id }}</div>
+  <div class="mt16" style="white-space:pre-wrap">{{ post?.body }}</div>
+</section>
+
+<div *ngIf="loading" class="muted mt16">Loading post…</div>
+<div *ngIf="error" class="mt16" style="color:#ff8e8e">{{ error }}</div>

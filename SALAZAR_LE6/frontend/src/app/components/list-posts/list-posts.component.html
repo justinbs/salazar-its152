@@ -1,0 +1,23 @@
+<div class="card">
+  <div class="h1">Posts</div>
+
+  <div *ngIf="loading" class="mt16 muted">Loading…</div>
+  <div *ngIf="error" class="mt16" style="color:#ff8e8e">{{ error }}</div>
+
+  <div class="grid mt16" *ngIf="!loading && !error">
+    <article class="card" *ngFor="let p of posts" style="padding:16px">
+      <a [routerLink]="['/post', p.id]" class="h2" style="display:block; margin-bottom:6px;">
+        {{ p.title }}
+      </a>
+      <div class="muted" style="font-size:12px;margin-bottom:8px;">
+        ID #{{ p.id }}
+      </div>
+      <div class="muted">
+        {{ p.body | slice:0:160 }}{{ (p.body?.length ?? 0) > 160 ? '…' : '' }}
+      </div>
+      <div class="mt16">
+        <a class="btn secondary" [routerLink]="['/post', p.id]">Read more</a>
+      </div>
+    </article>
+  </div>
+</div>

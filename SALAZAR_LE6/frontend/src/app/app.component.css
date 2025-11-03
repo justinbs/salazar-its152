@@ -1,0 +1,2 @@
+nav a{ color:var(--text); opacity:.9 }
+nav a.active{ color:var(--brand) }
