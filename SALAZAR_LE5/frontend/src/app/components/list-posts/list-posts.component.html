@@ -1,0 +1,13 @@
+<h2>Posts</h2>
+
+<div *ngIf="loading">Loading...</div>
+<div *ngIf="error" style="color:crimson">{{ error }}</div>
+
+<ul *ngIf="!loading && !error">
+  <li *ngFor="let p of posts" style="margin-bottom: 8px;">
+    <a [routerLink]="['/post', p.id]">{{ p.title }}</a>
+    <div style="font-size: 12px; color: #666;">
+      {{ (p.body || p.content) | slice:0:120 }}{{ (p.body || p.content)?.length! > 120 ? '...' : '' }}
+    </div>
+  </li>
+</ul>
